@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://emoji-css.afeld.me/emoji.css" rel="stylesheet">
+    <link rel="stylesheet" href="./css/index.css">
+    <script src="https://kit.fontawesome.com/af368442cf.js" crossorigin="anonymous"></script>
+    <title>Autenticacion de cuenta</title>
+</head>
+<body>
+
+  
+
+
+    <h1>Formulario<i class="em em-hatching_chick" aria-role="presentation" aria-label="HATCHING CHICK"></i> </h1> 
+  <img src="" alt="">
+
+    <form id="bloque1">
+    <div id="cuadro1">
+    <h3 id="xd"> REGISTRARSE</h3>
+
+    <p>Escriba su correo electronico</p>
+    <input type="email" name="" id="email"> <br>
+
+    <p>Escriba su contraseña</p>
+    <input type="password" name="" id="pass"> <br><br>
+
+    <button id="ingresar">Aceptar </button> <br><br><br>
+    <button type="reset" id="limpiar" onclick="limpiar()">LIMPIAR</button> <br><br>
+    </div> 
+  </form>
+    <!--<button id="google">ingresar con google</button>-->
+    
+
+<br><br>
+    <div id="cuadro2">
+  <aside >
+    <h3>INGRESAR</h3>
+
+    <p>Escriba su correo electronico</p>
+    <input type="email" name="" id="email1"> <br>
+
+    <p>Escriba su contraseña</p>
+    <input type="password" name="" id="pass1"> <br><br>
+
+    <button id="ingresar1">Aceptar </button> <br><br><br>
+  </aside>
+    </div>
+
+<br><br><br><br>
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-app.js";
+        import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword} from "https://www.gstatic.com/firebasejs/9.14.0/firebase-auth.js";
+        import { GoogleAuthProvider,signInWithRedirect,getRedirectResult} from "https://www.gstatic.com/firebasejs/9.14.0/firebase-auth.js";
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+      
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+    apiKey: "AIzaSyCYreaORTAa0DrTpEvRanwce8GBZtQq4gg",
+    authDomain: "legendnoob.firebaseapp.com",
+    projectId: "legendnoob",
+    storageBucket: "legendnoob.appspot.com",
+    messagingSenderId: "991710314123",
+    appId: "1:991710314123:web:0d02d85b45fa5dcd3f5e8e"
+  };
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+        const provider = new GoogleAuthProvider(app);
+
+
+//eventos con el id registrar
+document.getElementById("ingresar").addEventListener("click",function(){
+    //obteniendo valores
+    let email = document.getElementById("email").value;
+    let pass = document.getElementById("pass").value;
+
+createUserWithEmailAndPassword(auth, email, pass)
+  .then((userCredential) => {
+    // Signed in 
+    const user = userCredential.user;
+    // ...
+    alert("la cuenta se creo exitosamente")
+  })
+  .catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    // ..
+    alert("presenta fallas de autenticacion o ya ingresaste ese correo")
+  });
+
+
+})
+
+//ingresar
+document.getElementById("ingresar1").addEventListener("click", function(){
+  const email1 = document.getElementById("email1"). value;  
+  const password1 = document.getElementById("pass1"). value;
+
+  signInWithEmailAndPassword(auth, email1, password1)
+  .then((userCredential) => {
+    // Signed in 
+    const user = userCredential.user;
+    // ...
+    alert("Bienbenido de nuevo")
+  // ABRIREMOS UNA NUEVA PAGINA NUEVA
+    window.open("https://www.google.com/search?q=como+hacer+mariguana+con+maizena+y+javacript&rlz=1C1CHBF_esPE1020PE1020&oq=como+hacer+mar&aqs=chrome.3.69i57j0i131i433i512j0i512j69i59j0i512l6.9648j0j15&sourceid=chrome&ie=UTF-8")
+  })
+  .catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    alert("NO estas en el sistema")
+  });
+})
+
+//vamos a crear una funcion para limpiar los datos ingresados
+function limpiar(){
+  document.getElementById("bloque1").reset();
+}
+
+//creamos el evneto para el boton google
+document.getElementById("google").addEventListener("click",function(){
+  //conectara los inicios del proovedor con el fire base
+  signInWithRedirect(auth,provider);
+  getRedirectResult(auth)
+  .then((result) => {
+    // This gives you a Google Access Token. You can use it to access Google APIs.
+    const credential = GoogleAuthProvider.credentialFromResult(result);
+    const token = credential.accessToken;
+
+    // The signed-in user info.
+    const user = result.user;
+    window.open("prueba.html")
+  }).catch((error) => {
+    // Handle Errors here.
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    // The email of the user's account used.
+    const email = error.customData.email;
+    // The AuthCredential type that was used.
+    const credential = GoogleAuthProvider.credentialFromError(error);
+    // ...
+    alert("este usuario no existe")
+  });
+
+}) 
+
+</script>
+
+<!--footer-------------------------------->
+<footer class="pie-pagina" id="pata">
+
+  <div class="grupo-1">
+      <div class="box">
+          <figure>
+              <a href="">
+                  <img src="https://pbs.twimg.com/media/FM16RyIXIAcAK3W.jpg" alt="logo"></a>
+          </figure>
+      </div>
+  
+
+  <div class="box">
+      <h2>DATOS </h2>
+      <p>Estudiante de Certus</p>
+      <p>NOOB en programacion</p>
+  </div>
+
+  <div class="box">
+  <h2>SIGUEME</h2>
+      <div class="red-social">
+          <a href="https://www.facebook.com/profile.php?id=100010684714844" class="fa fa-facebook" target="_blank"></a>
+          <a href="#" class="fa fa-instagram"></a>
+          <a href="#" class="fa fa-twitter"></a>
+          <a href="#" class="fa fa-whatsapp"></a>
+      </div>
+  </div>
+</div>
+  <div class="grupo-2">
+  <small>&copy;2022 <b>YONATHAN DLCB</b>.todos los derechos reservados </small>
+  </div>
+
+
+</footer>
+
+<script src="./js/codigo.js"></script>
+</body>
+</html>

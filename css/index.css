@@ -1,0 +1,142 @@
+body {
+    background-color: #c4c4c4;
+    /*background-image: url("https://static6.depositphotos.com/1025323/620/i/450/depositphotos_6200159-stock-photo-digital-circuit.jpg");
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-size:cover;*/
+}
+/*--------titulo xd */
+
+h1{
+color: rgb(254, 254, 254);
+text-align: center;
+font-family: cursive;
+font-size: 55px;
+text-transform: uppercase;
+font-weight: 800;
+text-shadow: 2px 5px rgb(12, 245, 152);
+}
+h3{
+    font-family: cursive;
+    background-color: rgb(255, 247, 0);
+    width: 100%;
+}
+
+
+#cuadro1{
+    margin:auto;
+    padding: auto;
+    margin-right: auto;
+    width: 30%;
+    height: 18em;
+    background-image: url("https://media.tenor.com/dOEMOxwirD4AAAAC/goku-dancing.gif");
+    background-size: cover;
+    text-align: center;
+    border-radius: 30px;
+}
+
+#cuadro2{
+    text-align: center;
+    margin: auto;
+    padding: auto;
+    margin-left: auto;
+    background-image: url("https://media.tenor.com/Gce3OKSXeQIAAAAC/perro-bailando.gif");
+    background-size: cover;
+    width: 30%;
+    height: 15em;
+    background-color: red;
+    border-radius: 30px;
+}
+
+p{
+    color: rgb(237, 209, 46);
+    font-family: cursive;
+    font-weight: bold;
+}
+
+h3{
+    font-weight: bold;
+}
+
+
+
+
+
+
+/*-------------footer-----------------*/
+.pie-pagina{
+    width: 100%;
+    background-color:rgb(179, 182, 183)
+
+}
+.pie-pagina .grupo-1{
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-gap: 50px;
+    padding: 45px 0px;
+
+}
+.pie-pagina .grupo-1 .box figure{
+    width: 80px;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.pie-pagina .grupo-1 .box figure img{
+    margin-top: 30px;
+    width: 150px;
+    height: 140px;
+    
+}
+.pie-pagina .grupo-1 .box h2{
+    color:black;
+    margin-bottom: 25px;
+    font-size: 20px;
+
+}
+.pie-pagina .grupo-1 .box p{
+    color: black;
+    margin-bottom: 10px;
+
+}
+.pie-pagina .grupo-1 .red-social a{
+    display: inline-block;
+    text-decoration: none;
+    width: 45px;
+    height: 45px;
+    line-height: 45px;
+    color: rgb(250, 247, 247);
+    margin-right: 10px;
+    background-color:rgb(29, 238, 238);
+    text-align: center;
+    transition: all 300ms ease;
+}
+.pie-pagina .grupo-1 .red-social a:hover{
+    color: black;
+}
+
+.pie-pagina .grupo-2{
+    background-color:rgb(193, 191, 191);
+    padding: 15px 10px;
+    text-align: center;
+    color: black;
+}
+
+.pie-pagina .grupo-2 small{
+    font-size: 15px;
+}
+
+@media screen and (max-width:800px){
+    .pie-pagina .grupo-1{
+        width: 90%;
+        grid-template-columns: repeat(1,1fr);
+        grid-gap: 30px;
+        padding: 35px 0px;
+
+    }
+}
